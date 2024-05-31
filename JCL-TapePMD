@@ -1,0 +1,16 @@
+//HAVETAPE  JOB 8128120,                                              
+//    'USERNAME',                                                     
+//    NOTIFY=&SYSUID,                                                
+//    REGION=256M,                                                   
+//    MSGCLASS=A,                                                    
+//    MSGLEVEL=(1,1),                                                
+//    CLASS=A                                                        
+//COPY     EXEC PGM=IEBGENER                                         
+//SYSUT1   DD   DSN=XXXX.XXX.FILE.G001V00,DISP=SHR
+//SYSUT2   DD   DSN=USERNAME.HAVE.TAPE.OUT,                           
+// DISP=(NEW,KEEP,DELETE),                                           
+// DCB=*.SYSUT1,UNIT=SYSDA,VOL=(,,,10),                              
+// SPACE=(CYL,(100,10))                                              
+//SYSPRINT DD   SYSOUT=*                                             
+//SYSDUMP DD SYSOUT=*                                                
+//SYSIN   DD DUMMY                                                   
