@@ -1,0 +1,17 @@
+###### JCL - Create simple GDG with max 5 limits in IBM Mainframe
+###### Just run the JCL in a dataset with SUB
+
+000100 //JOBNAME JOB 123456,                                                 
+000200 //    'USERNAME',                                                    
+000300 //    NOTIFY=&SYSUID,                                              
+000310 //    REGION=256M,                                                
+000400 //    MSGCLASS=A,                                                     
+000500 //    MSGLEVEL=(1,1),                                                  
+000600 //    CLASS=A                                                        
+000700 //STEP1 EXEC PGM=IDCAMS                                              
+000800 //SYSPRINT DD SYSOUT=*                                                
+000900 //AMSDUMP  DD SYSOUT=*                                                
+000920 //SYSIN  DD *                                                          
+001000   DEFINE GDG (NAME(USER.XXX.YY) LIMIT(5) SCRATCH NOEMPTY)        
+002300 /*                                                                   
+002400 //                                                                      
